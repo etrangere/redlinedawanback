@@ -1,5 +1,8 @@
 package fr.pib.backend.repositories;
 
-public class VersionsRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+import fr.pib.backend.beans.Versions;
+
+public interface VersionsRepository extends JpaRepository<Versions,Long>{
 
 }

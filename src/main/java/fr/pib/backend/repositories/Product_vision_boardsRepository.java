@@ -1,5 +1,8 @@
 package fr.pib.backend.repositories;
 
-public class Product_vision_boardsRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+import fr.pib.backend.beans.Product_vision_boards;
+
+public interface Product_vision_boardsRepository extends JpaRepository<Product_vision_boards,Long>{
 
 }
