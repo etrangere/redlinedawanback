@@ -9,9 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
-
-import fr.pib.backend.beans.Developments;
-import fr.pib.backend.services.DevelopmentsService;
+import fr.pib.backend.beans.Languages_and_technos;
 import fr.pib.backend.services.Languages_and_technosService;
 
 @CrossOrigin()
@@ -24,7 +22,7 @@ public class Languages_and_technosController {
     
     @GetMapping("")
     @ResponseStatus(code = HttpStatus.OK)
-    public List<Languages_and_technosService> findAll(){
-        return this.languages_and_technosService.getAlllanguages_and_technosService();
+    public List<Languages_and_technos> findAll(){
+        return this.languages_and_technosService.getAllLanguages_and_technos();
     }
 }

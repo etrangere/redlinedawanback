@@ -15,7 +15,7 @@ public class DevelopmentsService {
     @Autowired
     private DevelopmentsRepository developmentsRepository;
     
- // get all developements
+    // get all developements
     
     public List<Developments> getAllDevelopments(){
         return developmentsRepository.findAll();
