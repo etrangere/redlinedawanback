@@ -4,11 +4,15 @@ import java.io.Serializable;
 import java.math.BigInteger;
 import java.sql.Date;
 
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+
+import jakarta.persistence.ManyToOne;
+
 import jakarta.persistence.Table;
 
 @Entity
@@ -51,6 +55,21 @@ public class Roadmaps implements Serializable{
     
     @Column(name = "versions")
     private BigInteger version;
+    
+    
+    @ManyToOne
+    private Projects projects ;
+    
+        
+    public Projects getProjects() {
+        return projects;
+    }
+
+
+    public void setProjects(Projects projects) {
+        this.projects = projects;
+    }
+
 
 
     public Roadmaps() {

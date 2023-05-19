@@ -3,12 +3,17 @@ package fr.pib.backend.beans;
 import java.io.Serializable;
 import java.math.BigInteger;
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -43,7 +48,55 @@ public class Projects implements Serializable{
     
     @Column(name = "versions")
     private BigInteger version;
+    
+    @OneToMany(mappedBy="projects")
+    private List <Roadmaps> roadmpas = new ArrayList<>();
+    
+    @OneToMany(mappedBy="projects")
+    private List <Versions> versions = new ArrayList<>();
+    
+    @ManyToMany(mappedBy="projects")
+    private List <Resources> resources = new ArrayList<>();
+    
+    @ManyToMany(mappedBy="projects")
+    private List <Languages_and_technos> languages_and_technos = new ArrayList<>();
+    
+        
 
+    public List<Roadmaps> getRoadmpas() {
+        return roadmpas;
+    }
+
+    public void setRoadmpas(List<Roadmaps> roadmpas) {
+        this.roadmpas = roadmpas;
+    }
+
+    public List<Versions> getVersions() {
+        return versions;
+    }
+
+    public void setVersions(List<Versions> versions) {
+        this.versions = versions;
+    }
+
+    public List<Languages_and_technos> getLanguages_and_technos() {
+        return languages_and_technos;
+    }
+
+    public void setLanguages_and_technos(List<Languages_and_technos> languages_and_technos) {
+        this.languages_and_technos = languages_and_technos;
+    }
+
+    public List<Resources> getResources() {
+        return resources;
+    }
+
+    public void setResources(List<Resources> resources) {
+        this.resources = resources;
+    }
+
+   
+    
     public Projects() {
         super();
     }

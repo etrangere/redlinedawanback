@@ -8,8 +8,11 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Entity
@@ -27,11 +30,22 @@ public class Languages_and_technos implements Serializable{
     @Column(name = "first_saving_date_times")
     private Date first_saving_date_time;
     
+    public List<Projects> getProjects() {
+        return projects;
+    }
+
+    public void setProjects(List<Projects> projects) {
+        this.projects = projects;
+    }
+
     @Column(name = "last_update_date_time")
     private Date last_update_date_time;
     
     @Column(name = "versions")
     private BigInteger version;
+    
+    @ManyToMany
+    private List <Projects> projects = new ArrayList<>();
 
     public Languages_and_technos() {
         super();
