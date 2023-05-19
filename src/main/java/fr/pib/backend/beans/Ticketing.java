@@ -9,7 +9,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
+
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
@@ -47,21 +47,7 @@ public class Ticketing implements Serializable{
     private BigInteger version;
     
     @OneToOne
-    @JoinColumn(name = "projects_id")
     private Projects projects;
-
-
-
-    public Projects getProjects() {
-        return projects;
-    }
-
-
-
-    public void setProjects(Projects projects) {
-        this.projects = projects;
-    }
-
 
 
     public Ticketing() {
@@ -82,6 +68,16 @@ public class Ticketing implements Serializable{
         this.version = version;
     }
 
+
+    public Projects getProjects() {
+        return projects;
+    }
+
+
+
+    public void setProjects(Projects projects) {
+        this.projects = projects;
+    }
 
 
     public long getId() {

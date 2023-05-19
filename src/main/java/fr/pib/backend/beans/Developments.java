@@ -43,16 +43,8 @@ public class Developments implements Serializable{
     private BigInteger version;
     
     @OneToOne
-    @JoinColumn(name = "projects_id")
     private Projects projects;
-
-    public Projects getProjects() {
-        return projects;
-    }
-
-    public void setProjects(Projects projects) {
-        this.projects = projects;
-    }
+    
 
     public Developments() {
         super();
@@ -75,6 +67,14 @@ public class Developments implements Serializable{
         this.version = version;
     }
 
+    public Projects getProjects() {
+        return projects;
+    }
+
+    public void setProjects(Projects projects) {
+        this.projects = projects;
+    }
+    
     public long getId() {
         return id;
     }

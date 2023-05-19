@@ -48,17 +48,7 @@ public class Resources implements Serializable{
     @ManyToMany
     private List <Projects> projects = new ArrayList<>();
 
-
-    public List<Projects> getProjects() {
-        return projects;
-    }
-
-
-    public void setProjects(List<Projects> projects) {
-        this.projects = projects;
-    }
-
-
+    
     public Resources() {
         super();
     }
@@ -77,7 +67,15 @@ public class Resources implements Serializable{
         this.version = version;
     }
 
+    public List<Projects> getProjects() {
+        return projects;
+    }
 
+
+    public void setProjects(List<Projects> projects) {
+        this.projects = projects;
+    }
+    
     public long getId() {
         return id;
     }

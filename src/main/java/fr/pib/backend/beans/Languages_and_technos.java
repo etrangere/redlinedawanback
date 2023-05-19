@@ -29,14 +29,7 @@ public class Languages_and_technos implements Serializable{
     
     @Column(name = "first_saving_date_times")
     private Date first_saving_date_time;
-    
-    public List<Projects> getProjects() {
-        return projects;
-    }
 
-    public void setProjects(List<Projects> projects) {
-        this.projects = projects;
-    }
 
     @Column(name = "last_update_date_time")
     private Date last_update_date_time;
@@ -61,6 +54,14 @@ public class Languages_and_technos implements Serializable{
         this.version = version;
     }
 
+    public List<Projects> getProjects() {
+        return projects;
+    }
+
+    public void setProjects(List<Projects> projects) {
+        this.projects = projects;
+    }
+    
     public long getId() {
         return id;
     }

@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.math.BigInteger;
 import java.sql.Date;
 
+import org.springframework.lang.NonNull;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -58,19 +59,10 @@ public class Roadmaps implements Serializable{
     
     
     @ManyToOne
+    @NonNull
     private Projects projects ;
     
         
-    public Projects getProjects() {
-        return projects;
-    }
-
-
-    public void setProjects(Projects projects) {
-        this.projects = projects;
-    }
-
-
 
     public Roadmaps() {
         super();
@@ -94,6 +86,16 @@ public class Roadmaps implements Serializable{
         this.version = version;
     }
 
+    public Projects getProjects() {
+        return projects;
+    }
+
+
+    public void setProjects(Projects projects) {
+        this.projects = projects;
+    }
+
+    
 
     public long getId() {
         return id;

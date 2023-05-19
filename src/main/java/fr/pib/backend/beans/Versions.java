@@ -45,18 +45,6 @@ public class Versions implements Serializable{
     @ManyToOne
     private Projects projects;
 
-    
-
-    public Projects getProjects() {
-        return projects;
-    }
-
-
-    public void setProjects(Projects projects) {
-        this.projects = projects;
-    }
-
-
     public Versions() {
         super();
     }
@@ -76,6 +64,15 @@ public class Versions implements Serializable{
     }
 
 
+    public Projects getProjects() {
+        return projects;
+    }
+
+
+    public void setProjects(Projects projects) {
+        this.projects = projects;
+    }
+    
     public long getId() {
         return id;
     }

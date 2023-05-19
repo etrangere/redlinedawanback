@@ -6,6 +6,8 @@ import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.lang.NonNull;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -13,6 +15,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -48,19 +51,91 @@ public class Projects implements Serializable{
     @Column(name = "versions")
     private BigInteger version;
     
+    @OneToOne(mappedBy="projects")
+    @NonNull
+    private Developments developements;
+    
+    @OneToOne(mappedBy="projects")
+    @NonNull
+    private Time_lines timelines;
+    
+    @OneToOne(mappedBy="projects")
+    @NonNull
+    private Product_vision_boards product_vision_boards;
+    
+    @OneToOne(mappedBy="projects")
+    @NonNull
+    private Ticketing ticketing;
+    
     @OneToMany(mappedBy="projects")
+    @NonNull
     private List <Roadmaps> roadmpas = new ArrayList<>();
     
     @OneToMany(mappedBy="projects")
+    @NonNull
     private List <Versions> versions = new ArrayList<>();
     
     @ManyToMany(mappedBy="projects")
     private List <Resources> resources = new ArrayList<>();
     
     @ManyToMany(mappedBy="projects")
+    @NonNull
     private List <Languages_and_technos> languages_and_technos = new ArrayList<>();
     
         
+
+   
+   
+    
+    public Projects() {
+        super();
+    }
+
+    public Projects(long id, String name, String progress_rate, String status, Date dead_line,
+            String url_remote_repository, Date first_saving_date_time, Date last_update_date_time, BigInteger version) {
+        super();
+        this.id = id;
+        this.name = name;
+        this.progress_rate = progress_rate;
+        this.status = status;
+        this.dead_line = dead_line;
+        this.url_remote_repository = url_remote_repository;
+        this.first_saving_date_time = first_saving_date_time;
+        this.last_update_date_time = last_update_date_time;
+        this.version = version;
+    }
+
+    public Developments getDevelopements() {
+        return developements;
+    }
+
+    public void setDevelopements(Developments developements) {
+        this.developements = developements;
+    }
+
+    public Time_lines getTimelines() {
+        return timelines;
+    }
+
+    public void setTimelines(Time_lines timelines) {
+        this.timelines = timelines;
+    }
+
+    public Product_vision_boards getProduct_vision_boards() {
+        return product_vision_boards;
+    }
+
+    public void setProduct_vision_boards(Product_vision_boards product_vision_boards) {
+        this.product_vision_boards = product_vision_boards;
+    }
+
+    public Ticketing getTicketing() {
+        return ticketing;
+    }
+
+    public void setTicketing(Ticketing ticketing) {
+        this.ticketing = ticketing;
+    }
 
     public List<Roadmaps> getRoadmpas() {
         return roadmpas;
@@ -94,26 +169,7 @@ public class Projects implements Serializable{
         this.resources = resources;
     }
 
-   
     
-    public Projects() {
-        super();
-    }
-
-    public Projects(long id, String name, String progress_rate, String status, Date dead_line,
-            String url_remote_repository, Date first_saving_date_time, Date last_update_date_time, BigInteger version) {
-        super();
-        this.id = id;
-        this.name = name;
-        this.progress_rate = progress_rate;
-        this.status = status;
-        this.dead_line = dead_line;
-        this.url_remote_repository = url_remote_repository;
-        this.first_saving_date_time = first_saving_date_time;
-        this.last_update_date_time = last_update_date_time;
-        this.version = version;
-    }
-
     public long getId() {
         return id;
     }
