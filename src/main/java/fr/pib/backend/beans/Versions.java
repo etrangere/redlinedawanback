@@ -3,15 +3,11 @@ package fr.pib.backend.beans;
 import java.io.Serializable;
 import java.math.BigInteger;
 import java.sql.Date;
-import java.util.ArrayList;
-import java.util.List;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
@@ -50,8 +46,6 @@ public class Versions implements Serializable{
     private Projects projects;
 
     
-
-   
 
     public Projects getProjects() {
         return projects;
