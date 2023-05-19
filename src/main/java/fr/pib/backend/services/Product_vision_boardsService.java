@@ -18,7 +18,7 @@ public class Product_vision_boardsService {
     
 // get all Product_vision_boards
     
-    public List<Product_vision_boards> getAllLanguages_and_technos(){
+    public List<Product_vision_boards> getAllProduct_vision_boards(){
         return product_vision_boardsRepository.findAll();
     }  
 }

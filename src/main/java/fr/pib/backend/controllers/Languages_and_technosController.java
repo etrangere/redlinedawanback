@@ -14,7 +14,7 @@ import fr.pib.backend.services.Languages_and_technosService;
 
 @CrossOrigin()
 @RestController
-@RequestMapping("/Languages_and_technos")
+@RequestMapping("/languages_and_technos")
 public class Languages_and_technosController {
 
     @Autowired

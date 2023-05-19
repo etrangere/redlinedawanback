@@ -15,7 +15,7 @@ import fr.pib.backend.services.DevelopmentsService;
 
 @CrossOrigin()
 @RestController
-@RequestMapping("/Developements")
+@RequestMapping("/developements")
 public class DevelopementsController {
 
     @Autowired
