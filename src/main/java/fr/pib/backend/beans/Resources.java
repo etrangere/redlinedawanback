@@ -3,6 +3,7 @@ package fr.pib.backend.beans;
 import java.io.Serializable;
 import java.math.BigInteger;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -46,7 +47,8 @@ public class Resources implements Serializable{
     @Column(name = "versions")
     private BigInteger version;
     
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JsonBackReference
     private Projects projects;
 
     

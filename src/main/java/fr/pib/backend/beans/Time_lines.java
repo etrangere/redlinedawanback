@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.math.BigInteger;
 import java.sql.Date;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -38,7 +40,8 @@ public class Time_lines implements Serializable{
     @Column(name = "versions")
     private BigInteger version;
     
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.EAGER)
+    @JsonBackReference
     private Projects projects;
 
     public Projects getProjects() {
