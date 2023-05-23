@@ -10,10 +10,11 @@ import org.springframework.lang.NonNull;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
+
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
@@ -55,30 +56,30 @@ public class Projects implements Serializable{
     @NonNull
     private Developments developements;
     
-    @OneToOne(mappedBy="projects")
+    @OneToOne(mappedBy="projects", fetch = FetchType.LAZY)
     @NonNull
     private Time_lines timelines;
     
-    @OneToOne(mappedBy="projects")
+    @OneToOne(mappedBy="projects", fetch = FetchType.LAZY)
     @NonNull
     private Product_vision_boards product_vision_boards;
     
-    @OneToOne(mappedBy="projects")
+    @OneToOne(mappedBy="projects", fetch = FetchType.LAZY)
     @NonNull
     private Ticketing ticketing;
     
-    @OneToMany(mappedBy="projects")
+    @OneToMany(mappedBy="projects", fetch = FetchType.LAZY)
     @NonNull
-    private List <Roadmaps> roadmpas = new ArrayList<>();
+    private List <Roadmaps> roadmaps = new ArrayList<>();
     
-    @OneToMany(mappedBy="projects")
+    @OneToMany(mappedBy="projects", fetch = FetchType.LAZY)
     @NonNull
     private List <Versions> versions = new ArrayList<>();
     
-    @OneToMany(mappedBy="projects")
+    @OneToMany(mappedBy="projects", fetch = FetchType.LAZY)
     private List <Resources> resources = new ArrayList<>();
     
-    @ManyToMany(mappedBy="projects")
+    @OneToMany(mappedBy="projects", fetch = FetchType.LAZY)
     @NonNull
     private List <Languages_and_technos> languages_and_technos = new ArrayList<>();
     
@@ -137,12 +138,14 @@ public class Projects implements Serializable{
         this.ticketing = ticketing;
     }
 
-    public List<Roadmaps> getRoadmpas() {
-        return roadmpas;
+    
+
+    public List<Roadmaps> getRoadmaps() {
+        return roadmaps;
     }
 
-    public void setRoadmpas(List<Roadmaps> roadmpas) {
-        this.roadmpas = roadmpas;
+    public void setRoadmaps(List<Roadmaps> roadmaps) {
+        this.roadmaps = roadmaps;
     }
 
     public List<Versions> getVersions() {
