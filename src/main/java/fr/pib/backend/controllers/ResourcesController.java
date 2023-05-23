@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 import fr.pib.backend.beans.Resources;
 import fr.pib.backend.services.ResourcesService;
+
 
 @CrossOrigin()
 @RestController
@@ -38,6 +40,18 @@ public class ResourcesController {
         System.out.println(resources);
         return this.resourcesService.create(resources);
     }
+    /*
+    //create resources  with validation  
+    @PostMapping("")
+    @ResponseStatus(code = HttpStatus.CREATED)
+    public Resources create(@Valid @RequestBody Resources resources,BindingResult rsource) {
+        if(rsource.hasErrors()) {
+            System.out.println("error");
+        }
+        return this.resourcesService.create(resources);
+    }
+    */
+    
     
     //update resources    
     @PutMapping("/{id}")

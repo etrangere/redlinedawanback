@@ -2,15 +2,15 @@ package fr.pib.backend.beans;
 
 import java.io.Serializable;
 import java.math.BigInteger;
-import java.util.ArrayList;
-import java.util.List;
+
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
+
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -45,8 +45,8 @@ public class Resources implements Serializable{
     @Column(name = "versions")
     private BigInteger version;
     
-    @ManyToMany
-    private List <Projects> projects = new ArrayList<>();
+    @ManyToOne
+    private Projects projects;
 
     
     public Resources() {
@@ -67,15 +67,18 @@ public class Resources implements Serializable{
         this.version = version;
     }
 
-    public List<Projects> getProjects() {
+    
+    
+    public Projects getProjects() {
         return projects;
     }
 
 
-    public void setProjects(List<Projects> projects) {
+    public void setProjects(Projects projects) {
         this.projects = projects;
     }
-    
+
+
     public long getId() {
         return id;
     }

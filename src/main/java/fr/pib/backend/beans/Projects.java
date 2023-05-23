@@ -75,7 +75,7 @@ public class Projects implements Serializable{
     @NonNull
     private List <Versions> versions = new ArrayList<>();
     
-    @ManyToMany(mappedBy="projects")
+    @OneToMany(mappedBy="projects")
     private List <Resources> resources = new ArrayList<>();
     
     @ManyToMany(mappedBy="projects")
