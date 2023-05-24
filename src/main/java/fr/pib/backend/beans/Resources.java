@@ -31,7 +31,7 @@ public class Resources implements Serializable{
     @Column(name = "types",length=50)
     private String type;
     
-    @Column(name = "links",length=50)
+    @Column(name = "links",length=1000)
     private String link;
     
     @Column(name = "link_types",length=50)
