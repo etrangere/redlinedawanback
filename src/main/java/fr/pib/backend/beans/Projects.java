@@ -10,6 +10,7 @@ import org.springframework.lang.NonNull;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -58,36 +59,36 @@ public class Projects implements Serializable{
     @NonNull
     private Developments developements;
     
-    @OneToOne(mappedBy="projects", fetch = FetchType.LAZY)
+    @OneToOne(mappedBy="projects", fetch = FetchType.LAZY,cascade = CascadeType.REMOVE)
     @JsonManagedReference
     @NonNull
     private Time_lines timelines;
     
-    @OneToOne(mappedBy="projects", fetch = FetchType.LAZY)
+    @OneToOne(mappedBy="projects", fetch = FetchType.LAZY,cascade = CascadeType.REMOVE)
     @JsonManagedReference
     @NonNull
     private Product_vision_boards product_vision_boards;
     
-    @OneToOne(mappedBy="projects", fetch = FetchType.LAZY)
+    @OneToOne(mappedBy="projects", fetch = FetchType.LAZY,cascade = CascadeType.REMOVE)
     @JsonManagedReference
     @NonNull
     private Ticketing ticketing;
     
-    @OneToMany(mappedBy="projects", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy="projects", fetch = FetchType.LAZY,cascade = CascadeType.REMOVE)
     @JsonManagedReference
     @NonNull
     private List <Roadmaps> roadmaps = new ArrayList<>();
     
-    @OneToMany(mappedBy="projects", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy="projects", fetch = FetchType.LAZY,cascade = CascadeType.REMOVE)
     @JsonManagedReference
     @NonNull
     private List <Versions> versions = new ArrayList<>();
     
-    @OneToMany(mappedBy="projects", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy="projects", fetch = FetchType.LAZY,cascade = CascadeType.REMOVE)
     @JsonManagedReference
     private List <Resources> resources = new ArrayList<>();
     
-    @OneToMany(mappedBy="projects", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy="projects", fetch = FetchType.LAZY,cascade = CascadeType.REMOVE)
     @JsonManagedReference
     @NonNull
     private List <Languages_and_technos> languages_and_technos = new ArrayList<>();

@@ -36,4 +36,17 @@ public class ProjectsService {
         }
         return this.projectsRepository.save(projects);
     }
+    
+    //delete project
+    public void delete(Long id) {
+        if (!this.projectsRepository.existsById(id)) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND,
+                    "Impossible de trouver le project à supprimer");
+        }
+        this.projectsRepository.deleteById(id);
+        if (this.projectsRepository.existsById(id)) {
+            throw new ResponseStatusException(HttpStatus.EXPECTATION_FAILED,
+                    "Erreur lors de la suppression de project");
+        }
+    }
 }
