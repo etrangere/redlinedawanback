@@ -37,4 +37,17 @@ public class ResourcesService {
         }
         return this.resourcesRepository.save(resources);
     }
+    
+    //delete resource
+    public void delete(Long id) {
+        if (!this.resourcesRepository.existsById(id)) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND,
+                    "Impossible de trouver le project à supprimer");
+        }
+        this.resourcesRepository.deleteById(id);
+        if (this.resourcesRepository.existsById(id)) {
+            throw new ResponseStatusException(HttpStatus.EXPECTATION_FAILED,
+                    "Erreur lors de la suppression de project");
+        }
+    }
 }
