@@ -108,7 +108,7 @@ function createButtonset() {
   
         link1.href = baseUrl+"/project_vision.html";
         link2.href = baseUrl+"/project_roadmap.html";
-        link3.href = "https://trello.com/b/w3FlvWqa.html";
+        link3.href = "https://trello.com/b/dho83kY3.html";
         link4.href = baseUrl+"/sprint_planning.html";
         link5.href = baseUrl+"/pocker_planning.html";
         link6.href = baseUrl+"/sprint.html";
