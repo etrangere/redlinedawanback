@@ -1,3 +1,50 @@
+//API
+// Function to update and retrieve the apiURL value
+function updateApiURL(value) {
+    if (value) {
+      localStorage.setItem("apiURL", value);
+    }
+    return localStorage.getItem("apiURL");
+  }
+  
+
+
+
+// Function to execute two functions from one click for apiURL and button
+function handleClickAPI() {
+   // make_api_url();
+    block_button_api();
+  }
+  
+  // Function to lock button after one click
+  function block_button_api() {
+    let button_api = document.getElementById("btnselectapi");
+    let api_url_value = document.getElementById("urlapi");
+    button_api.disabled = true;
+    localStorage.setItem("buttonDisabled", "true");
+    localStorage.setItem("apiURL", api_url_value.value);
+  
+  }
+  
+  // Function to retrieve the disabled state and URL value and apply them on page load
+  function applyButtonState() {
+    let button_api = document.getElementById("btnselectapi");
+    let isButtonDisabled = localStorage.getItem("buttonDisabled");
+   
+  
+    if (isButtonDisabled === "true") {
+      button_api.disabled = true;
+    } else {
+      button_api.disabled = false;
+    }
+  }
+  
+  
+  // Call applyButtonState() when the page loads to retrieve the disabled state and URL value
+  window.addEventListener("load", applyButtonState);
+  
+//api  
+
 /*modal*/
 // Get the modal
 let modal = document.getElementById("myModal");
@@ -61,8 +108,30 @@ window.addEventListener('load', function() {
 });
 /*separator-spliter finish*/
 
+
+/* function to execute two functions from one click  */
+function handleClick() {
+    block_button();
+    createButtonset();
+    
+}
+/* function to lock button after one click  */
+function block_button() {
+var button = document.getElementById("btnselect");
+button.disabled = true;
+}
+
+ 
 /*buttons*/
 function createButtonset() {
+
+
+
+ // Retrieve the apiURL value
+ const apiURL = updateApiURL();
+
+
+
 
     var method = document.getElementById("method").value;
      if(method == "Scrum"){
@@ -106,15 +175,15 @@ function createButtonset() {
         let buttonText8 = document.createTextNode("Sprint Review");
         let buttonText9 = document.createTextNode("Retrospective");
   
-        link1.href = baseUrl+"/project_vision.html";
-        link2.href = baseUrl+"/project_roadmap.html";
-        link3.href = "https://trello.com/b/dho83kY3.html";
-        link4.href = baseUrl+"/sprint_planning.html";
-        link5.href = baseUrl+"/pocker_planning.html";
-        link6.href = baseUrl+"/sprint.html";
-        link7.href = baseUrl+"/developpment.html";
-        link8.href = baseUrl+"/sprint_review.html";
-        link9.href = baseUrl+"/sprint_retrospective.html";
+        link1.href = baseUrl+"project_vision.html";
+        link2.href = baseUrl+"project_roadmap.html";
+        link3.href = apiURL;
+        link4.href = baseUrl+"sprint_planning.html";
+        link5.href = baseUrl+"pocker_planning.html";
+        link6.href = baseUrl+"sprint.html";
+        link7.href = baseUrl+"developpment.html";
+        link8.href = baseUrl+"sprint_review.html";
+        link9.href = baseUrl+"sprint_retrospective.html";
         
         
         link1.target = "right";
@@ -157,67 +226,7 @@ function createButtonset() {
         newButtonset7.classList.add("custom-button-etape");
         newButtonset8.classList.add("custom-button-etape");
         newButtonset9.classList.add("custom-button-etape");
-
-        let removeButtonset1 = document.createElement("button");
-        let removeButtonset2 = document.createElement("button");
-        let removeButtonset3 = document.createElement("button");
-        let removeButtonset4 = document.createElement("button");
-        let removeButtonset5 = document.createElement("button");
-        let removeButtonset6 = document.createElement("button");
-        let removeButtonset7 = document.createElement("button");
-        let removeButtonset8 = document.createElement("button");
-        let removeButtonset9 = document.createElement("button");
-        let removeButtonText1 = document.createTextNode(buttonText1);
-        let removeButtonText2 = document.createTextNode(buttonText2);
-        let removeButtonText3 = document.createTextNode(buttonText3);
-        let removeButtonText4 = document.createTextNode(buttonText4);
-        let removeButtonText5 = document.createTextNode(buttonText5);
-        let removeButtonText6 = document.createTextNode(buttonText6);
-        let removeButtonText7 = document.createTextNode(buttonText7);
-        let removeButtonText8 = document.createTextNode(buttonText8);
-        let removeButtonText9 = document.createTextNode(buttonText9);
-        
-        removeButtonset1.appendChild(removeButtonText1);
-        removeButtonset2.appendChild(removeButtonText2);
-        removeButtonset3.appendChild(removeButtonText3);
-        removeButtonset4.appendChild(removeButtonText4);
-        removeButtonset5.appendChild(removeButtonText5);
-        removeButtonset6.appendChild(removeButtonText6);
-        removeButtonset7.appendChild(removeButtonText7);
-        removeButtonset8.appendChild(removeButtonText8);
-        removeButtonset9.appendChild(removeButtonText9);
-
-        removeButtonset1.classList.add("remove-button");
-        removeButtonset2.classList.add("remove-button");
-        removeButtonset3.classList.add("remove-button");
-        removeButtonset4.classList.add("remove-button");
-        removeButtonset5.classList.add("remove-button");
-        removeButtonset6.classList.add("remove-button");
-        removeButtonset7.classList.add("remove-button");
-        removeButtonset8.classList.add("remove-button");
-        removeButtonset9.classList.add("remove-button");
-        removeButtonset1.addEventListener("click", function() {
-            
-            newButtonset1.remove();
-            newButtonset2.remove();
-            newButtonset3.remove();
-            newButtonset4.remove();
-            newButtonset5.remove();
-            newButtonset6.remove();
-            newButtonset7.remove();
-            newButtonset8.remove();
-            newButtonset9.remove();
-
-            removeButtonset1.remove();
-            removeButtonset2.remove();
-            removeButtonset3.remove();
-            removeButtonset4.remove();
-            removeButtonset5.remove();
-            removeButtonset6.remove();
-            removeButtonset7.remove();
-            removeButtonset8.remove();
-            removeButtonset9.remove();
-        });
+    
         document.getElementById("button-container-etape").appendChild(newButtonset1);
         document.getElementById("button-container-etape").appendChild(newButtonset2);
         document.getElementById("button-container-etape").appendChild(newButtonset3);
@@ -227,16 +236,6 @@ function createButtonset() {
         document.getElementById("button-container-etape").appendChild(newButtonset7);
         document.getElementById("button-container-etape").appendChild(newButtonset8);
         document.getElementById("button-container-etape").appendChild(newButtonset9);
-
-        document.getElementById("remove-container-etape").appendChild(removeButtonset1);
-        document.getElementById("remove-container-etape").appendChild(removeButtonset2);
-        document.getElementById("remove-container-etape").appendChild(removeButtonset3);
-        document.getElementById("remove-container-etape").appendChild(removeButtonset4);
-        document.getElementById("remove-container-etape").appendChild(removeButtonset5);
-        document.getElementById("remove-container-etape").appendChild(removeButtonset6);
-        document.getElementById("remove-container-etape").appendChild(removeButtonset7);
-        document.getElementById("remove-container-etape").appendChild(removeButtonset8);
-        document.getElementById("remove-container-etape").appendChild(removeButtonset9);
      }else 
      {
         let newButtonset1 = document.createElement("button");  
@@ -260,7 +259,7 @@ function createButtonset() {
         let buttonText4 = document.createTextNode("Developpement");
         link1.href = baseUrl+"/project_vision.html";
         link2.href = baseUrl+"/project_roadmap.html";
-        link3.href = "https://trello.com/b/dho83kY3.html";
+        link3.href = apiURL;
         link4.href = baseUrl+"/developpment.html";
         link1.target = "right";
         link2.target = "right";
@@ -278,42 +277,11 @@ function createButtonset() {
         newButtonset2.classList.add("custom-button-etape");
         newButtonset3.classList.add("custom-button-etape");
         newButtonset4.classList.add("custom-button-etape");
-        let removeButtonset1 = document.createElement("button");
-        let removeButtonset2 = document.createElement("button");
-        let removeButtonset3 = document.createElement("button");
-        let removeButtonset4 = document.createElement("button");
-        let removeButtonText1 = document.createTextNode(buttonText1);
-        let removeButtonText2 = document.createTextNode(buttonText2);
-        let removeButtonText3 = document.createTextNode(buttonText3);
-        let removeButtonText4 = document.createTextNode(buttonText4);
-        removeButtonset1.appendChild(removeButtonText1);
-        removeButtonset2.appendChild(removeButtonText2);
-        removeButtonset3.appendChild(removeButtonText3);
-        removeButtonset4.appendChild(removeButtonText4);
-        removeButtonset1.classList.add("remove-button");
-        removeButtonset2.classList.add("remove-button");
-        removeButtonset3.classList.add("remove-button");
-        removeButtonset4.classList.add("remove-button");
-        removeButtonset1.addEventListener("click", function() {
-            newButtonset1.remove();
-            newButtonset2.remove();
-            newButtonset3.remove();
-            newButtonset4.remove();
 
-            removeButtonset1.remove();
-            removeButtonset2.remove();
-            removeButtonset3.remove();
-            removeButtonset4.remove();
-       
-        });
         document.getElementById("button-container-etape").appendChild(newButtonset1);
         document.getElementById("button-container-etape").appendChild(newButtonset2);
         document.getElementById("button-container-etape").appendChild(newButtonset3);
         document.getElementById("button-container-etape").appendChild(newButtonset4);
-        document.getElementById("remove-container-etape").appendChild(removeButtonset1);
-        document.getElementById("remove-container-etape").appendChild(removeButtonset2);
-        document.getElementById("remove-container-etape").appendChild(removeButtonset3);
-        document.getElementById("remove-container-etape").appendChild(removeButtonset4);
      }
      
  
