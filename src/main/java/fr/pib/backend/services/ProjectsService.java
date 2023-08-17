@@ -1,6 +1,7 @@
 package fr.pib.backend.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -23,6 +24,10 @@ public class ProjectsService {
         return projectsRepository.findAll();
     }  
     
+    // get project by id
+    public Optional<Projects> getProjectById(Long id){
+        return projectsRepository.findById(id);
+    }  
     //create projects
     public Projects create(Projects projects) {
         return this.projectsRepository.save(projects);

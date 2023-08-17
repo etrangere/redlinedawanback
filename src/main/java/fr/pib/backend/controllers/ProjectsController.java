@@ -1,6 +1,7 @@
 package fr.pib.backend.controllers;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -31,6 +32,12 @@ public class ProjectsController {
     @ResponseStatus(code = HttpStatus.OK)
     public List<Projects> findAll(){
         return this.projectsService.getAllProjects();
+    }
+    //get project with id
+    @GetMapping("/{id}")
+    @ResponseStatus(code = HttpStatus.OK)
+    public Optional<Projects> findById(@PathVariable Long id){
+        return this.projectsService.getProjectById(id);
     }
     
     //create projects    
