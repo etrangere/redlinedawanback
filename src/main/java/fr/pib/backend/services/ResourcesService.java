@@ -24,6 +24,12 @@ public class ResourcesService {
         return resourcesRepository.findAll();
     }  
     
+    // get all Resources by project
+    
+    public List<Resources> getAllResourcesByProject(Long id){
+        return resourcesRepository.findByProjectsId(id);
+    }  
+    
     //create Resources
     public Resources create(Resources resources) {
         return this.resourcesRepository.save(resources);

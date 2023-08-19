@@ -34,6 +34,12 @@ public class ResourcesController {
         return this.resourcesService.getAllResources();
     }
     
+    // resources by project
+    @GetMapping("/project/{id}")
+    @ResponseStatus(code = HttpStatus.OK)
+    public List<Resources> findByProjectsId(@PathVariable Long id){
+        return this.resourcesService.getAllResourcesByProject(id);
+    }
     //create resources    
     @PostMapping("")
     @ResponseStatus(code = HttpStatus.CREATED)
