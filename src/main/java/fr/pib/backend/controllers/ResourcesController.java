@@ -1,6 +1,7 @@
 package fr.pib.backend.controllers;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -33,6 +34,14 @@ public class ResourcesController {
     public List<Resources> findAll(){
         return this.resourcesService.getAllResources();
     }
+    
+    // resource by id
+    @GetMapping("/{id}")
+    @ResponseStatus(code = HttpStatus.OK)
+    public Optional<Resources> findResourceById(@PathVariable Long id){
+        return this.resourcesService.getResourceById(id);
+    }
+    
     
     // resources by project
     @GetMapping("/project/{id}")

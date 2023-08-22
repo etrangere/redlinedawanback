@@ -1,6 +1,7 @@
 package fr.pib.backend.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -23,6 +24,13 @@ public class ResourcesService {
     public List<Resources> getAllResources(){
         return resourcesRepository.findAll();
     }  
+    
+    // get  resource by id
+    
+    public Optional<Resources> getResourceById(Long id){
+        return resourcesRepository.findById((long) id);
+    }  
+    
     
     // get all Resources by project
     
