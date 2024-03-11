@@ -1,0 +1,5 @@
+1.Add option to choose like a scrum method the tech stack in order to have the base of books and materials specified languadge
+2.Github trafic log counter for clones and views for each project
+3.Bugzilla integration
+4.Github integration to have user per project connected
+
